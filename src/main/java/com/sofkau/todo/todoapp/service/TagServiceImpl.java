@@ -19,7 +19,7 @@ public class TagServiceImpl implements TagService{
     private Mapper mapper;
 
     @Override
-    public TagDto createNote(TagDto tagDto) {
-        return mapper.fromEntityToNoteDto(tagRepository.save(mapper.fromTagDtoToEntity(tagDto)));
+    public TagDto createTag(TagDto tagDto) {
+        return mapper.fromEntityToTagDto(tagRepository.save(mapper.fromTagDtoToEntity(tagDto)));
     }
 }
