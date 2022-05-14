@@ -2,6 +2,7 @@ package com.sofkau.todo.todoapp.dto;
 
 import com.sofkau.todo.todoapp.entity.Category;
 import com.sofkau.todo.todoapp.entity.Note;
+import com.sofkau.todo.todoapp.entity.Tag;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -19,6 +20,14 @@ public class Mapper {
         return note;
     }
 
+    public Tag fromTagDtoToEntity(TagDto tagDto){
+        Tag tag = new Tag();
+        tag.setId(tagDto.getId());
+        tag.setDescription(tagDto.getDescription());
+        tag.setNoteId(tagDto.getNoteId());
+        return tag;
+    }
+
     public NoteDto fromEntityToNoteDto(Note note){
         NoteDto noteDto = new NoteDto();
         noteDto.setCategoryId(note.getCategoryId());
@@ -26,6 +35,14 @@ public class Mapper {
         noteDto.setMessage(note.getMessage());
         noteDto.setId(note.getId());
         return noteDto;
+    }
+
+    public TagDto fromEntityToTagDto(Tag tag){
+        TagDto tagDto = new TagDto();
+        tagDto.setId(tag.getId());
+        tagDto.setDescription(tag.getDescription());
+        tagDto.setNoteId(tag.getNoteId());
+        return tagDto;
     }
 
     public Category fromCategoryDtoToEntity(CategoryDto categoryDto){
