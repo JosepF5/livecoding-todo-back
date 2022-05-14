@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class NoteDto{
@@ -12,4 +14,5 @@ public class NoteDto{
     private String message;
     private boolean done;
     private Long categoryId;
+    private List<TagDto> tags = new ArrayList<>();
 }

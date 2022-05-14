@@ -17,6 +17,10 @@ public class Mapper {
         note.setDone(noteDto.isDone());
         note.setMessage(noteDto.getMessage());
         note.setId(noteDto.getId());
+        List<Tag> tags = new ArrayList<>();
+        noteDto.getTags().forEach
+                (taskDto -> tags.add(this.fromTagDtoToEntity(taskDto)));
+        note.setTags(tags);
         return note;
     }
 
@@ -34,6 +38,9 @@ public class Mapper {
         noteDto.setDone(note.isDone());
         noteDto.setMessage(note.getMessage());
         noteDto.setId(note.getId());
+        List<TagDto> tagDto = new ArrayList<>();
+        note.getTags().forEach(task -> tagDto.add(this.fromEntityToTagDto(task)));
+        noteDto.setTags(tagDto);
         return noteDto;
     }
 
